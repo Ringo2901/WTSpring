@@ -44,8 +44,8 @@ public class PhoneDaoImpl implements PhoneDao {
                 criteriaQuery.where(criteriaBuilder.like(criteriaBuilder.lower(root.get("brand")), "%" + query.toLowerCase() + "%"));
             }
             if (sortField != null && sortOrder != null) {
-                Order order = sortOrder == SortOrder.ASC ? criteriaBuilder.asc(root.get(sortField.name()))
-                        : criteriaBuilder.desc(root.get(sortField.name()));
+                Order order = sortOrder == SortOrder.ASC ? criteriaBuilder.asc(root.get(sortField.name().toLowerCase()))
+                        : criteriaBuilder.desc(root.get(sortField.name().toLowerCase()));
                 criteriaQuery.orderBy(order);
             }
 
